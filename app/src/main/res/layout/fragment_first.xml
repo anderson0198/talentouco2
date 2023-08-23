@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-
-
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -75,6 +74,12 @@
                 android:textColor="@color/primaryTextColor"
                 android:text="@string/login_signup_hint"
                 android:onClick="viewRegisterClicked"
+                android:layout_marginTop="@dimen/loginViewsMargin"/>
+            <Button
+                android:id="@+id/recycler"
+                style="@style/loginButton"
+                android:text="Recycler"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/loginViewsMargin"/>
 
 
