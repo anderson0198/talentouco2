@@ -12,11 +12,11 @@
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/register" />
-        <action
             android:id="@+id/action_login_to_recyclerViewFragment"
             app:destination="@id/recyclerViewFragment" />
+        <action
+            android:id="@+id/action_login_to_recyclerActivity"
+            app:destination="@id/recyclerActivity" />
     </fragment>
     <fragment
         android:id="@+id/register"
@@ -36,4 +36,9 @@
         android:name="com.example.talentouco2.RecyclerViewFragment"
         android:label="fragment_recycler_view"
         tools:layout="@layout/fragment_recycler_view" />
+    <activity
+        android:id="@+id/recyclerActivity"
+        android:name="com.example.talentouco2.RecyclerActivity"
+        android:label="activity_recycler"
+        tools:layout="@layout/activity_recycler" />
 </navigation>

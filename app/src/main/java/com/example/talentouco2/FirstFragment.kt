@@ -33,7 +33,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Login.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_login_to_recyclerActivity)
         }
         binding.recycler.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_recyclerViewFragment)
@@ -44,4 +44,6 @@ class FirstFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
