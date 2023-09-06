@@ -12,6 +12,11 @@ class TalentoProvider {
                 "Anderson paz",
                 "Ing. Sistemas",
                 "https://scontent.feoh4-4.fna.fbcdn.net/v/t1.6435-9/33581500_1947506135319423_7518787001261228032_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=84a396&_nc_eui2=AeGj5zd-RxZs5NFwLRrkcknfkK9aOedNlRaQr1o5502VFqGkBIas_dCsJOLZRq2iCOdOt4vChONapHUAGoYZP3UH&_nc_ohc=NzIqkShOrB4AX-WnJ9-&_nc_ht=scontent.feoh4-4.fna&oh=00_AfDcmG7tG7ZhDFtvdI2w2WXn28v2QwJ8spQZjiTnUU3x2w&oe=650CCA2F"
+            ),
+            Talento(
+                "Gabriel Cano",
+                "Ing. Electrónica",
+                "https://lh3.googleusercontent.com/a/AAcHTtfzhrFwMgsgHMnudzY8kewv6g_eVF0yt2uA7asCrrCmLlmX=s288-c-no"
             )
         )
     }
