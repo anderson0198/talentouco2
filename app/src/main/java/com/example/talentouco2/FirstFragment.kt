@@ -38,6 +38,9 @@ class FirstFragment : Fragment() {
         binding.recycler.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_recyclerViewFragment)
         }
+        binding.Register.setOnClickListener {
+            findNavController().navigate(R.id.action_login_to_register)
+        }
     }
 
     override fun onDestroyView() {
