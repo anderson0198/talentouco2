@@ -1,22 +1,34 @@
 package com.example.talentouco2.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talentouco2.R
-import com.example.talentouco2.Talento
+import com.example.talentouco2.data.database.entities.OfertasEntity
+import com.example.talentouco2.listeners.OnItemClickListener
 
-class TalentoAdapter(private val talentoList:List<Talento>): RecyclerView.Adapter<TalentoViewHolder>(){
+
+
+class TalentoAdapter(var data: List<OfertasEntity> = emptyList()): RecyclerView.Adapter<TalentoViewHolder>(){
+    @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TalentoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
+        var itemClickListener: OnItemClickListener? = null
         return TalentoViewHolder(layoutInflater.inflate(R.layout.item_talento, parent, false))
     }
 
-    override fun getItemCount(): Int = talentoList.size
+    override fun getItemCount(): Int = data.size
 
 
     override fun onBindViewHolder(holder: TalentoViewHolder, position: Int) {
-        val item = talentoList[position]
-        holder.render(item)
+        val oferta = data[position]
+        holder.empresa.text = oferta.empresa
+        holder.carrera.text = oferta.requisitoCarrera
+        holder.fecha.text = oferta.fechaInicial
+        holder.semestre.text = "${oferta.requisitoSemestre}"
+        holder.descripcion.text = oferta.descripcion
+        holder.render(oferta)
     }
 }

@@ -14,18 +14,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
     <TextView
-        android:id="@+id/tvTalentoNombre"
+        android:id="@+id/tvOfertaEmpresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Ejemplo Nombre"
+        tools:text="Ejemplo Empresa"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
     <TextView
-        android:id="@+id/tvTalentoCarrera"
+        android:id="@+id/tvOfertaCarrera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Ejemplo Carrera"
-        app:layout_constraintTop_toBottomOf="@+id/tvTalentoNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tvOfertaEmpresa"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+    <TextView
+        android:id="@+id/tvOfertaFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Ejemplo Fecha"
+        app:layout_constraintTop_toBottomOf="@+id/tvOfertaCarrera"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+    <TextView
+        android:id="@+id/tvOfertaSemestre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Ejemplo Semestre"
+        app:layout_constraintTop_toBottomOf="@+id/tvOfertaFecha"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+    <TextView
+        android:id="@+id/tvOfertaDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Ejemplo Descripción"
+        app:layout_constraintTop_toBottomOf="@+id/tvOfertaSemestre"
         app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
