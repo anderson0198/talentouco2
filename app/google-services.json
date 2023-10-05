@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1089080056448",
+    "project_id": "talentouco2",
+    "storage_bucket": "talentouco2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089080056448:android:8f9c282f4bef4a3961e465",
+        "android_client_info": {
+          "package_name": "com.example.talentouco2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5uxvayV9I8Ucy8-nNtmf55Iz8-nR9T5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
