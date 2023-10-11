@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.talentouco2.adapter.TalentoAdapter
 import com.example.talentouco2.databinding.ActivityMainBinding
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
+        //Evento personalizado de google analytics
+        val analytics:FirebaseAnalytics = FirebaseAnalytics.getInstance(this)
+        val bundle = Bundle()
+        bundle.putString("message", "Integración de Firebase Completa")
+        analytics.logEvent("InitScreen", bundle)
 
     }
 
