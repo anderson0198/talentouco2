@@ -1,52 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="151dp">
 
     <ImageView
         android:id="@+id/ivTalento"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        tools:background="@color/loginBkColor"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        tools:background="@color/loginBkColor"
+        />
+
     <TextView
         android:id="@+id/tvOfertaEmpresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Ejemplo Empresa"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+        tools:text="Ejemplo Empresa"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"/>
+
     <TextView
         android:id="@+id/tvOfertaCarrera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Ejemplo Carrera"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"
         app:layout_constraintTop_toBottomOf="@+id/tvOfertaEmpresa"
-        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+        tools:text="Ejemplo Carrera"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"/>
+
     <TextView
         android:id="@+id/tvOfertaFecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Ejemplo Fecha"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"
         app:layout_constraintTop_toBottomOf="@+id/tvOfertaCarrera"
-        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+        tools:text="Ejemplo Fecha"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"/>
+
     <TextView
         android:id="@+id/tvOfertaSemestre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Ejemplo Semestre"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"
         app:layout_constraintTop_toBottomOf="@+id/tvOfertaFecha"
-        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+        tools:text="Ejemplo Semestre"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"/>
+
     <TextView
         android:id="@+id/tvOfertaDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Ejemplo Descripción"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivTalento"
         app:layout_constraintTop_toBottomOf="@+id/tvOfertaSemestre"
-        app:layout_constraintStart_toEndOf="@+id/ivTalento"/>
+        tools:text="Ejemplo Descripción"
+        app:layout_constrainedWidth="true"
+        android:gravity="center"/>
+    <View
+        android:id="@+id/whiteLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/ivTalento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

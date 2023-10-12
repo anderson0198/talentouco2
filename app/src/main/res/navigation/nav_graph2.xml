@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/recyclerViewFragment2"
         android:name="com.example.talentouco2.RecyclerViewFragment"
-        android:label="fragment_recycler_view"
+        android:label="TalentoUCO"
         tools:layout="@layout/fragment_recycler_view" />
 </navigation>

@@ -1,5 +1,6 @@
 package com.example.talentouco2
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -13,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.NonNull
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,12 +35,19 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 class MainActivity : AppCompatActivity() {
 
-    //private lateinit var appBarConfiguration: AppBarConfiguration
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var client: GoogleSignInClient
+    private val signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data: Intent? = result.data
+            if (data != null) {
+                handleGoogleSignInResult(data)
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -49,9 +58,10 @@ class MainActivity : AppCompatActivity() {
         //appBarConfiguration = AppBarConfiguration(navController.graph)
         //setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        binding.LogGoogle.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val signInIntent = client.signInIntent
+            signInLauncher.launch(signInIntent)
         }
 
         //Evento personalizado de google analytics
@@ -62,15 +72,15 @@ class MainActivity : AppCompatActivity() {
 
         //Auth con google
         val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken("1089080056448-iqbufi63ug07q77b7n6len6opgfgv8b5.apps.googleusercontent.com")
+            .requestIdToken("1089080056448-2hchbneietvtpaaup40lq5u3783732ro.apps.googleusercontent.com")
             .requestEmail()
             .build()
-
-        client = GoogleSignIn.getClient(this, options)
-        binding.LogGoogle.setOnClickListener {
-            val signInIntent = client.signInIntent
-            startActivityForResult(signInIntent, 1234)
+        val googleSignInClient = GoogleSignIn.getClient(this, options)
+        googleSignInClient.signOut().addOnCompleteListener {
+             //Cierre de sesión completado
         }
+        client = GoogleSignIn.getClient(this, options)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -90,31 +100,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 1234){
-            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
-                val credential: AuthCredential = GoogleAuthProvider.getCredential(account.idToken,null)
-                FirebaseAuth.getInstance().signInWithCredential(credential)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            // La autenticación fue exitosa
-                            val intent = Intent(applicationContext, RecyclerActivity::class.java)
-                            startActivity(intent)
-                            // Realiza acciones adicionales
-                        } else {
-                            // La autenticación falló
-
-                            Toast.makeText(applicationContext, task.exception?.message ?: "", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, RecyclerActivity::class.java)
-                            // Manejar la excepción
-                        }
+    private fun handleGoogleSignInResult(data: Intent) {
+        val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+        try {
+            val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
+            val credential: AuthCredential = GoogleAuthProvider.getCredential(account.idToken, null)
+            FirebaseAuth.getInstance().signInWithCredential(credential)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // La autenticación fue exitosa
+                        val intent = Intent(applicationContext, RecyclerActivity::class.java)
+                        intent.putExtra("options", client.apiOptions)
+                        startActivity(intent)
+                        // Realiza acciones adicionales
+                    } else {
+                        // La autenticación fallo
+                        Toast.makeText(applicationContext, task.exception?.message ?: "", Toast.LENGTH_SHORT).show()
+                        // Manejar la excepción
                     }
-            }catch(e: ApiException){
-                e.printStackTrace()
-            }
+                }
+        } catch (e: ApiException) {
+            e.printStackTrace()
         }
     }
 
