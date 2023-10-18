@@ -1,5 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin2">340dp</dimen>
     <dimen name="headerTextSize">22sp</dimen>
     <dimen name="newsMoreTextSize">12sp</dimen>
     <dimen name="loginCardRadius">20dp</dimen>

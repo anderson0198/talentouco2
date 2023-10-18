@@ -1,15 +1,16 @@
 package com.example.talentouco2
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.talentouco2.databinding.ActivityRecyclerBinding
-import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 class RecyclerActivity : AppCompatActivity() {
 
@@ -29,6 +30,11 @@ class RecyclerActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        binding.LogOutGoogle.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

@@ -1,5 +1,6 @@
 package com.example.talentouco2
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.talentouco2.data.database.AppDatabase
 import com.example.talentouco2.data.database.entities.OfertasEntity
 import com.example.talentouco2.databinding.FragmentRecyclerViewBinding
 import com.example.talentouco2.listeners.OnItemClickListener
+import com.google.firebase.auth.FirebaseAuth
 
 
 /**
@@ -36,8 +38,8 @@ class RecyclerViewFragment : Fragment(), OnItemClickListener {
 
         _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
 
-        return binding.root
 
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
