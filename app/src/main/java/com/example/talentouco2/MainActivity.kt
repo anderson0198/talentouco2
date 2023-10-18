@@ -1,24 +1,30 @@
 package com.example.talentouco2
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.talentouco2.adapter.TalentoAdapter
+import android.widget.Toast
+import com.example.talentouco2.data.database.DAO.ApiLogin
+import com.example.talentouco2.data.database.entities.Token
+import com.example.talentouco2.data.database.helper.PreferenceHelper
+import com.example.talentouco2.data.database.helper.PreferenceHelper.get
+import com.example.talentouco2.data.database.helper.PreferenceHelper.set
 import com.example.talentouco2.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputLayout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class MainActivity : AppCompatActivity() {
 
     //private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,11 +63,5 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-    /*override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }*/
 
 }

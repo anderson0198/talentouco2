@@ -30,7 +30,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputEmail"
+                android:id="@+id/textInputUser"
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin">
                 <com.google.android.material.textfield.TextInputEditText
@@ -38,7 +38,8 @@
                     style="@style/modifiedEditText"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:hint="@string/login_email_hint"/>
+                    android:hint="User"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

@@ -54,6 +54,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextUser"
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -64,6 +65,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
