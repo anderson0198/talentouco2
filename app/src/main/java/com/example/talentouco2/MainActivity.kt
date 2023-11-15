@@ -58,17 +58,20 @@ class MainActivity : AppCompatActivity() {
         //appBarConfiguration = AppBarConfiguration(navController.graph)
         //setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.LogGoogle.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val signInIntent = client.signInIntent
-            signInLauncher.launch(signInIntent)
-        }
+
 
         //Evento personalizado de google analytics
         val analytics:FirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         val bundle = Bundle()
         bundle.putString("message", "Integración de Firebase Completa")
         analytics.logEvent("InitScreen", bundle)
+
+        //Desconectar de firebase-auth
+        binding.LogGoogle.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val signInIntent = client.signInIntent
+            signInLauncher.launch(signInIntent)
+        }
 
         //Auth con google
         val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
